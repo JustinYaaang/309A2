@@ -51,13 +51,14 @@
 
 	function GameBuilder(){
 		FoodCreator();
-
 		setInterval('BugBuilder()', 1000);
 		setInterval('BugsMoving()', 1);
+
 	}
 
 	function BugsMoving(){
 
+	if (pause == false){
 		context.clearRect(0, 0, canvas.width, canvas.height);
 
 		for (var key in BugList) {
@@ -106,6 +107,8 @@
 			}
         }
 
+    }
+
 	}
 
 	function FoodCreator(){
@@ -120,7 +123,7 @@
 	}
 
 	function BugBuilder(){
-
+	if (pause == false){
 		var horizontal_position = Math.random()*400;
 		var vertical_position = 0;
 		var color_probability = Math.random();
@@ -147,6 +150,8 @@
 
         makeBug(horizontal_position, vertical_position, color);
 
+    }
+    
 	}
 
 	function BugConstructor(horizontal_position, vertical_position, speed, color){
@@ -178,18 +183,14 @@
 		Bug.distance = distance;		
 	}
 
-
 	function Pause(){
-		if (pause == false){
-			setTimeout('GameBuilder()', 1000000);
-			pause = true;
-		}
-		else {
-			clearTimeout('GameBuilder()');
+		if (pause == true){
 			pause = false;
 		}
+		else{
+			pause = true;
+		}
 	}
-
 //}
 
 
