@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS demo</title>
+</head>
+<body>
+
+<input id="test"  type="button" value="ClickMe" >
+
+<input type="button" onclick="addMe()" value="AddMe" >
+
+<input type="button" onclick="remove()" value="Delete" >
+
+<p id="demo">
+  This is a text.
+</p>
+
+<script>
+function clickMe(){
+	document.getElementById("demo").innerText = "<b>Text is changed.</b>";
+	alert(1);
+}
+
+function addMe(){
+var p = document.createElement("p");
+p.innerHTML = "A paragraph!";
+document.getElementById("demo").appendChild(p);
+}
+
+function remove() {
+	document.getElementById("demo").innerHTML="";
+   var elem = document.getElementById("demo");
+   while (elem.lastChild) {
+      elem.removeChild(elem.lastChild);
+   }
+}
+
+document.getElementById("test").onclick=clickMe;
+
+</script>
+
+</body>
+</html>
